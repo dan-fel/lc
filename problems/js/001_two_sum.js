@@ -4,15 +4,14 @@ function twoSum(nums, target) {
     for(let i = 0; i < nums.length; i++)  {
 
         val = target - nums[i]
-        val_from_map = table[val]
+        change_all_these_variables = table[val]
 
         if(!(val in table)){
             table[nums[i]] = i
         }
         else 
-            return [i, val_from_map]
+            return [i, change_all_these_variables]
     }
 }
-
 
 console.log(twoSum([2,7,11,15], 9))
