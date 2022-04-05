@@ -13,22 +13,17 @@ struct TreeNode
 class Solution
 {
 public:
-    void swap(TreeNode *node)
-    {
-        TreeNode *temp = node->left;
-        node->left = node->right;
-        node->right = temp;
-    }
-
     TreeNode *invertTree(TreeNode *root)
     {
         if (root == nullptr)
             return root;
 
-        invertTree(root->left);
-        invertTree(root->right);
+        TreeNode *right = invertTree(root->right);
+        TreeNode *left = invertTree(root->left);
 
-        swap(root);
+        root->left = right;
+        root->right = left;
+
         return root;
     }
 
