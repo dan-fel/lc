@@ -14,6 +14,7 @@ class Solution:
         return reversed(merged)
                         
 sol = Solution()
+
 sol.sortedSquares([-4, -1, 0, 3, 10])
 
 
