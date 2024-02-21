@@ -25,9 +25,8 @@ class PriorityQueue:
 
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:        
-        tasks_map, heap = Counter(tasks), []        
-        for t in tasks_map:            
-            heapq.heappush(heap, (-tasks_map[t], t))
+        task_count = Counter(tasks)
+        heap = [-c for c in task_count.values()]
 
         pqueue = PriorityQueue()
 
@@ -43,7 +42,7 @@ class Solution:
             if pqueue and pqueue.queue[0][0] == step:                     
                 task = pqueue.pop()
                 heapq.heappush(heap, task)       
-                    
+
             step += 1
         
         return step
