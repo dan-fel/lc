@@ -23,8 +23,8 @@ class Solution:
             o_ct = 0
             for i in range(p):
                 (r,c) = queue.popleft()
-                
-                if grid[r][c] == 1:
+                                
+                if grid[r + 1][c] == 1 or grid[r - 1][c] == 1 or grid[r][c - 1] == 1 or grid[r][c + 1] == 1:
                     queue.append((r,c))
                     o_ct += 1
 
